@@ -7,11 +7,26 @@
 
 import UIKit
 
+protocol InputMemoDelegate {
+    func addMemo(content: String)
+}
+
 class InputMemoViewController: UIViewController {
+    
+    var delegate: InputMemoDelegate?
     
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var button: UIButton!
+    
+    init?(coder: NSCoder, delegate: InputMemoDelegate) {
+        self.delegate = delegate
+        super.init(coder: coder)
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -8,6 +8,7 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
     var data: [String] = []
 
     @IBOutlet weak var tableView: UITableView!
@@ -24,9 +25,17 @@ class ViewController: UIViewController {
         tableView.register(UINib(nibName: "MemoTableViewCell", bundle: nil), forCellReuseIdentifier: MemoTableViewCell.identifier)
     }
     
+    @IBSegueAction func presentInputMemoViewController(_ coder: NSCoder) -> InputMemoViewController? {
+        return InputMemoViewController(
+            coder: coder,
+            delegate: self
+        )
+    }
+    
 }
 
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return data.count
     }
@@ -38,4 +47,5 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         cell.configure(content: data[indexPath.row])
         return cell
     }
+    
 }

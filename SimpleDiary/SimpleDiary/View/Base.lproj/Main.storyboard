@@ -28,7 +28,7 @@
                                 </constraints>
                                 <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
-                                    <segue destination="dz0-zm-wxl" kind="presentation" modalPresentationStyle="overFullScreen" modalTransitionStyle="crossDissolve" id="gIT-AJ-IGo"/>
+                                    <segue destination="dz0-zm-wxl" kind="presentation" destinationCreationSelector="presentInputMemoViewController:" modalPresentationStyle="overFullScreen" modalTransitionStyle="crossDissolve" id="gIT-AJ-IGo"/>
                                 </connections>
                             </button>
                         </subviews>
