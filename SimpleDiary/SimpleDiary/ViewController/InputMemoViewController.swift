@@ -9,21 +9,16 @@ import UIKit
 
 class InputMemoViewController: UIViewController {
     
-    @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var contentView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setUp()
+        textField.becomeFirstResponder()
     }
     
     private func setUp() {
-        setUpGesture()
         setUpKeyboardNotification()
-    }
-    private func setUpGesture() {
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tappedBackground))
-        backgroundView.addGestureRecognizer(tapGesture)
     }
     
     private func setUpKeyboardNotification() {
@@ -47,7 +42,7 @@ class InputMemoViewController: UIViewController {
         self.contentView.transform = .identity
     }
 
-    @objc func tappedBackground() {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.dismiss(animated: true, completion: nil)
     }
     

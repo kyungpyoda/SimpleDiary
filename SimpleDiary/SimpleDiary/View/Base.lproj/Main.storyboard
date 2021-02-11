@@ -108,7 +108,6 @@
                     </view>
                     <navigationItem key="navigationItem" id="cep-B2-w9L"/>
                     <connections>
-                        <outlet property="backgroundView" destination="sts-pm-J5F" id="4gd-uV-XlK"/>
                         <outlet property="contentView" destination="B9U-Pw-4X5" id="CKe-RV-ytG"/>
                     </connections>
                 </viewController>
