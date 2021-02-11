@@ -48,6 +48,12 @@ class InputMemoViewController: UIViewController {
         textField.delegate = self
     }
     
+    private func addMemo() {
+        guard let input = textField.text else { return }
+        delegate?.addMemo(content: input)
+        textField.text = nil
+    }
+    
     @objc func keyboardWillShow(notification: Notification) {
         guard let info = notification.userInfo,
               let size = info[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue,
@@ -69,9 +75,7 @@ class InputMemoViewController: UIViewController {
     }
     
     @IBAction func touchedAddMemo(_ sender: Any) {
-        guard let input = textField.text else { return }
-        delegate?.addMemo(content: input)
-        textField.text = nil
+        addMemo()
     }
     
 }
@@ -84,6 +88,12 @@ extension InputMemoViewController: UITextFieldDelegate {
     
     func textFieldDidChangeSelection(_ textField: UITextField) {
         button.isEnabled = !(textField.text?.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty ?? true)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        guard textField == self.textField else { return false }
+        addMemo()
+        return true
     }
     
 }
