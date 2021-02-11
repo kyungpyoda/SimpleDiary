@@ -79,6 +79,7 @@
                                         </constraints>
                                         <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" image="arrow.up.circle.fill" catalog="system"/>
+                                        <state key="disabled" image="xmark.circle.fill" catalog="system"/>
                                         <connections>
                                             <action selector="touchedAddMemo:" destination="dz0-zm-wxl" eventType="touchUpInside" id="8lI-Le-CjH"/>
                                         </connections>
@@ -108,7 +109,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="cep-B2-w9L"/>
                     <connections>
+                        <outlet property="button" destination="GIT-be-zEh" id="bb0-Zr-iyY"/>
                         <outlet property="contentView" destination="B9U-Pw-4X5" id="CKe-RV-ytG"/>
+                        <outlet property="textField" destination="I8n-tT-sbB" id="xBZ-tl-9Ck"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QpA-kV-oy8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -118,6 +121,7 @@
     </scenes>
     <resources>
         <image name="arrow.up.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="xmark.circle.fill" catalog="system" width="128" height="121"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

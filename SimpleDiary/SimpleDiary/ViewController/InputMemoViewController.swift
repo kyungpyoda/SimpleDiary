@@ -10,20 +10,27 @@ import UIKit
 class InputMemoViewController: UIViewController {
     
     @IBOutlet weak var contentView: UIView!
+    @IBOutlet weak var textField: UITextField!
+    @IBOutlet weak var button: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setUp()
-        textField.becomeFirstResponder()
     }
     
     private func setUp() {
         setUpKeyboardNotification()
+        setUpTextField()
     }
     
     private func setUpKeyboardNotification() {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    private func setUpTextField() {
+        textField.becomeFirstResponder()
+        textField.delegate = self
     }
     
     @objc func keyboardWillShow(notification: Notification) {
@@ -49,4 +56,17 @@ class InputMemoViewController: UIViewController {
     @IBAction func touchedAddMemo(_ sender: Any) {
         print("메모추가해야함")
     }
+    
+}
+
+extension InputMemoViewController: UITextFieldDelegate {
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        button.isEnabled = false
+    }
+    
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+        button.isEnabled = !(textField.text?.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty ?? true)
+    }
+    
 }
