@@ -21,9 +21,9 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dce-Fa-SBQ">
-                                <rect key="frame" x="305" y="597" width="50" height="50"/>
+                                <rect key="frame" x="316" y="608" width="44" height="44"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="50" id="Lzf-yP-UTm"/>
+                                    <constraint firstAttribute="width" constant="44" id="Lzf-yP-UTm"/>
                                     <constraint firstAttribute="width" secondItem="Dce-Fa-SBQ" secondAttribute="height" multiplier="1:1" id="hoS-qk-vf0"/>
                                 </constraints>
                                 <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -35,10 +35,10 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Dce-Fa-SBQ" secondAttribute="trailing" constant="20" id="3iQ-de-Caj"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Dce-Fa-SBQ" secondAttribute="trailing" constant="15" id="3iQ-de-Caj"/>
                             <constraint firstItem="FHQ-15-e7K" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="7vl-pO-Wsh"/>
                             <constraint firstItem="FHQ-15-e7K" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="JgO-Ar-iu6"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Dce-Fa-SBQ" secondAttribute="bottom" constant="20" id="WyX-6E-xBY"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Dce-Fa-SBQ" secondAttribute="bottom" constant="15" id="WyX-6E-xBY"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="FHQ-15-e7K" secondAttribute="trailing" id="gor-Jn-dGu"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="FHQ-15-e7K" secondAttribute="bottom" id="yCg-Ap-fcz"/>
                         </constraints>
