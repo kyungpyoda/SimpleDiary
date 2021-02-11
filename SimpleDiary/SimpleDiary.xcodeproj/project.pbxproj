@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		D442B4AA25D2A36E00203C01 /* InputMemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D442B4A925D2A36E00203C01 /* InputMemoViewController.swift */; };
+		D48F5BA725D57D4A006CD4F9 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D48F5BA525D57D4A006CD4F9 /* Model.xcdatamodeld */; };
+		D48F5BAB25D57FC7006CD4F9 /* Memo+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48F5BA925D57FC7006CD4F9 /* Memo+CoreDataClass.swift */; };
+		D48F5BAC25D57FC7006CD4F9 /* Memo+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48F5BAA25D57FC7006CD4F9 /* Memo+CoreDataProperties.swift */; };
 		D4938CDC25D293C4003A8032 /* MemoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4938CDA25D293C4003A8032 /* MemoTableViewCell.swift */; };
 		D4938CDD25D293C4003A8032 /* MemoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4938CDB25D293C4003A8032 /* MemoTableViewCell.xib */; };
 		D4E1129E25D28C4400D1AA54 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E1129D25D28C4400D1AA54 /* AppDelegate.swift */; };
@@ -20,6 +23,9 @@
 
 /* Begin PBXFileReference section */
 		D442B4A925D2A36E00203C01 /* InputMemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputMemoViewController.swift; sourceTree = "<group>"; };
+		D48F5BA625D57D4A006CD4F9 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		D48F5BA925D57FC7006CD4F9 /* Memo+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Memo+CoreDataClass.swift"; path = "SimpleDiary/Model/Memo+CoreDataClass.swift"; sourceTree = "<group>"; };
+		D48F5BAA25D57FC7006CD4F9 /* Memo+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Memo+CoreDataProperties.swift"; path = "SimpleDiary/Model/Memo+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		D4938CDA25D293C4003A8032 /* MemoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoTableViewCell.swift; sourceTree = "<group>"; };
 		D4938CDB25D293C4003A8032 /* MemoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MemoTableViewCell.xib; sourceTree = "<group>"; };
 		D4E1129A25D28C4400D1AA54 /* SimpleDiary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleDiary.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -46,6 +52,7 @@
 		D4938CD725D29389003A8032 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				D48F5BA525D57D4A006CD4F9 /* Model.xcdatamodeld */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -73,6 +80,8 @@
 		D4E1129125D28C4300D1AA54 = {
 			isa = PBXGroup;
 			children = (
+				D48F5BA925D57FC7006CD4F9 /* Memo+CoreDataClass.swift */,
+				D48F5BAA25D57FC7006CD4F9 /* Memo+CoreDataProperties.swift */,
 				D4E1129C25D28C4400D1AA54 /* SimpleDiary */,
 				D4E1129B25D28C4400D1AA54 /* Products */,
 			);
@@ -172,10 +181,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				D442B4AA25D2A36E00203C01 /* InputMemoViewController.swift in Sources */,
+				D48F5BAC25D57FC7006CD4F9 /* Memo+CoreDataProperties.swift in Sources */,
 				D4E112A225D28C4400D1AA54 /* ViewController.swift in Sources */,
 				D4938CDC25D293C4003A8032 /* MemoTableViewCell.swift in Sources */,
+				D48F5BAB25D57FC7006CD4F9 /* Memo+CoreDataClass.swift in Sources */,
 				D4E1129E25D28C4400D1AA54 /* AppDelegate.swift in Sources */,
 				D4E112A025D28C4400D1AA54 /* SceneDelegate.swift in Sources */,
+				D48F5BA725D57D4A006CD4F9 /* Model.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -377,6 +389,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		D48F5BA525D57D4A006CD4F9 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				D48F5BA625D57D4A006CD4F9 /* Model.xcdatamodel */,
+			);
+			currentVersion = D48F5BA625D57D4A006CD4F9 /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = D4E1129225D28C4300D1AA54 /* Project object */;
 }
