@@ -49,3 +49,12 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
 }
+
+extension ViewController: InputMemoDelegate {
+    
+    func addMemo(content: String) {
+        data.append(content)
+        tableView.reloadData()
+    }
+    
+}

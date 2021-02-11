@@ -69,7 +69,9 @@ class InputMemoViewController: UIViewController {
     }
     
     @IBAction func touchedAddMemo(_ sender: Any) {
-        print("메모추가해야함")
+        guard let input = textField.text else { return }
+        delegate?.addMemo(content: input)
+        textField.text = nil
     }
     
 }
