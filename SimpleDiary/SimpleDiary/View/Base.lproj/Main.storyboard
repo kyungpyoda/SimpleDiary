@@ -28,7 +28,7 @@
                                 </constraints>
                                 <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
-                                    <segue destination="dz0-zm-wxl" kind="presentation" modalPresentationStyle="overFullScreen" modalTransitionStyle="crossDissolve" id="rN8-By-GLC"/>
+                                    <segue destination="dz0-zm-wxl" kind="presentation" modalPresentationStyle="overFullScreen" modalTransitionStyle="crossDissolve" id="gIT-AJ-IGo"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -99,7 +99,7 @@
                             <constraint firstItem="W45-yo-cPV" firstAttribute="trailing" secondItem="B9U-Pw-4X5" secondAttribute="trailing" id="2Iw-Mb-STn"/>
                             <constraint firstItem="W45-yo-cPV" firstAttribute="bottom" secondItem="sts-pm-J5F" secondAttribute="bottom" id="5bQ-8T-MWc"/>
                             <constraint firstItem="B9U-Pw-4X5" firstAttribute="leading" secondItem="W45-yo-cPV" secondAttribute="leading" id="JY5-P2-nBy"/>
-                            <constraint firstItem="W45-yo-cPV" firstAttribute="bottom" secondItem="B9U-Pw-4X5" secondAttribute="bottom" id="Mgb-yr-iPa"/>
+                            <constraint firstItem="B9U-Pw-4X5" firstAttribute="bottom" secondItem="W45-yo-cPV" secondAttribute="bottom" id="Mgb-yr-iPa"/>
                             <constraint firstItem="sts-pm-J5F" firstAttribute="top" secondItem="W45-yo-cPV" secondAttribute="top" id="YMK-4B-HrR"/>
                             <constraint firstItem="sts-pm-J5F" firstAttribute="leading" secondItem="W45-yo-cPV" secondAttribute="leading" id="hOL-S8-qIg"/>
                             <constraint firstItem="W45-yo-cPV" firstAttribute="trailing" secondItem="sts-pm-J5F" secondAttribute="trailing" id="wRR-tQ-Jhx"/>
@@ -109,7 +109,8 @@
                     <navigationItem key="navigationItem" id="cep-B2-w9L"/>
                     <connections>
                         <outlet property="backgroundView" destination="sts-pm-J5F" id="4gd-uV-XlK"/>
-                        <outlet property="touchedAddMemo" destination="zhY-j1-icQ" id="UgL-vd-dnm"/>
+                        <outlet property="contentView" destination="B9U-Pw-4X5" id="CKe-RV-ytG"/>
+                        <outlet property="viewBottomConstraint" destination="Mgb-yr-iPa" id="jPt-CT-4RR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QpA-kV-oy8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
