@@ -10,10 +10,7 @@ import UIKit
 class InputMemoViewController: UIViewController {
     
     @IBOutlet weak var backgroundView: UIView!
-    
     @IBOutlet weak var contentView: UIView!
-    
-    @IBOutlet weak var viewBottomConstraint: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()

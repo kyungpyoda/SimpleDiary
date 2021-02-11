@@ -110,7 +110,6 @@
                     <connections>
                         <outlet property="backgroundView" destination="sts-pm-J5F" id="4gd-uV-XlK"/>
                         <outlet property="contentView" destination="B9U-Pw-4X5" id="CKe-RV-ytG"/>
-                        <outlet property="viewBottomConstraint" destination="Mgb-yr-iPa" id="jPt-CT-4RR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QpA-kV-oy8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
