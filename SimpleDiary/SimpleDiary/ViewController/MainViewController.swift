@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  MainViewController.swift
 //  SimpleDiary
 //
 //  Created by 홍경표 on 2021/02/09.
@@ -8,7 +8,7 @@
 import UIKit
 import CoreData
 
-class ViewController: UIViewController {
+class MainViewController: UIViewController {
     
     var data: [Memo] = []
 
@@ -93,7 +93,7 @@ class ViewController: UIViewController {
     }
 }
 
-extension ViewController: UITableViewDelegate, UITableViewDataSource {
+extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return data.count
@@ -119,7 +119,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     
 }
 
-extension ViewController: InputMemoDelegate {
+extension MainViewController: InputMemoDelegate {
     
     func addMemo(content: String) {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
@@ -139,7 +139,7 @@ extension ViewController: InputMemoDelegate {
     
 }
 
-extension ViewController: ChangeMemoStateDelegate {
+extension MainViewController: ChangeMemoStateDelegate {
     func changeState(of cell: MemoTableViewCell) {
         guard let index = tableView.indexPath(for: cell)?.row else {
             return
