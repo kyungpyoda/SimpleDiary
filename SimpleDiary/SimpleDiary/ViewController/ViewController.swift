@@ -65,6 +65,23 @@ class ViewController: UIViewController {
         }
     }
     
+    private func updateData(memo: Memo, newContent: String?, newState: String?) {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        let context = appDelegate.persistentContainer.viewContext
+        do {
+            if let newContent = newContent {
+                memo.setValue(newContent, forKey: "content")
+            }
+            if let newState = newState {
+                memo.setValue(newState, forKey: "state")
+            }
+            try context.save()
+            fetchData()
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
+    
     @IBAction func touchedEditMode(_ sender: Any) {
         if tableView.isEditing {
             editButton.title = "편집"
@@ -86,7 +103,8 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: MemoTableViewCell.identifier, for: indexPath) as? MemoTableViewCell else {
             return UITableViewCell()
         }
-        cell.configure(content: data[indexPath.row].content ?? "load failed")
+        cell.configure(memo: data[indexPath.row])
+        cell.delegate = self
         return cell
     }
     
@@ -108,8 +126,8 @@ extension ViewController: InputMemoDelegate {
         let context = appDelegate.persistentContainer.viewContext
         guard let entity = NSEntityDescription.entity(forEntityName: "Memo", in: context) else { return }
         
-        let memo = NSManagedObject(entity: entity, insertInto: context)
-        memo.setValue(content, forKey: "content")
+        let newMemo = NSManagedObject(entity: entity, insertInto: context)
+        newMemo.setValue(content, forKey: "content")
         
         do {
             try context.save()
@@ -119,4 +137,35 @@ extension ViewController: InputMemoDelegate {
         }
     }
     
+}
+
+extension ViewController: ChangeMemoStateDelegate {
+    func changeState(of cell: MemoTableViewCell) {
+        guard let index = tableView.indexPath(for: cell)?.row else {
+            return
+        }
+        let memo = data[index]
+        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .alert)
+        let notInProgressAction = UIAlertAction(title: "X 미진행", style: .default, handler: { [weak self] _ in
+            self?.updateData(memo: memo, newContent: nil, newState: "notIntProgress")
+            self?.fetchData()
+        })
+        let delayedAction = UIAlertAction(title: "-> 미룸", style: .default, handler: { [weak self] _ in
+            self?.updateData(memo: memo, newContent: nil, newState: "delayed")
+            self?.fetchData()
+        })
+        let inProgressAction = UIAlertAction(title: "~~ 진행중", style: .default, handler: { [weak self] _ in
+            self?.updateData(memo: memo, newContent: nil, newState: "inProgress")
+            self?.fetchData()
+        })
+        let doneAction = UIAlertAction(title: "O 완료", style: .default, handler: { [weak self] _ in
+            self?.updateData(memo: memo, newContent: nil, newState: "done")
+            self?.fetchData()
+        })
+        alert.addAction(notInProgressAction)
+        alert.addAction(delayedAction)
+        alert.addAction(inProgressAction)
+        alert.addAction(doneAction)
+        self.present(alert, animated: true, completion: nil)
+    }
 }
