@@ -50,6 +50,21 @@ class ViewController: UIViewController {
         }
         
     }
+    
+    func deleteData(at index: IndexPath) {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        let context = appDelegate.persistentContainer.viewContext
+        do {
+            context.delete(data[index.row])
+            try context.save()
+            data.remove(at: index.row)
+            tableView.deleteRows(at: [index], with: .automatic)
+            fetchData()
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
+    
     @IBAction func touchedEditMode(_ sender: Any) {
         if tableView.isEditing {
             editButton.title = "편집"
@@ -73,6 +88,15 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         }
         cell.configure(content: data[indexPath.row].content ?? "load failed")
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        switch editingStyle {
+        case .delete:
+            deleteData(at: indexPath)
+        default:
+            break
+        }
     }
     
 }
