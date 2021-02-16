@@ -10,10 +10,16 @@ import CoreData
 
 class MainViewController: UIViewController {
     
+    // MARK: Properties
+    
     var data: [Memo] = []
 
+    // MARK: Views
+    
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var editButton: UIBarButtonItem!
+    
+    // MARK: Initialize
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,11 +37,23 @@ class MainViewController: UIViewController {
         tableView.register(UINib(nibName: "MemoTableViewCell", bundle: nil), forCellReuseIdentifier: MemoTableViewCell.identifier)
     }
     
+    // MARK: Methods
+    
     @IBSegueAction func presentInputMemoViewController(_ coder: NSCoder) -> InputMemoViewController? {
         return InputMemoViewController(
             coder: coder,
             delegate: self
         )
+    }
+    
+    @IBAction func touchedEditMode(_ sender: Any) {
+        if tableView.isEditing {
+            editButton.title = "편집"
+            tableView.setEditing(false, animated: true)
+        } else {
+            editButton.title = "취소"
+            tableView.setEditing(true, animated: true)
+        }
     }
     
     private func fetchData() {
@@ -82,16 +100,9 @@ class MainViewController: UIViewController {
         }
     }
     
-    @IBAction func touchedEditMode(_ sender: Any) {
-        if tableView.isEditing {
-            editButton.title = "편집"
-            tableView.setEditing(false, animated: true)
-        } else {
-            editButton.title = "취소"
-            tableView.setEditing(true, animated: true)
-        }
-    }
 }
+
+// MARK: Implement TableView DataSource, Delegate
 
 extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     
@@ -119,6 +130,8 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     
 }
 
+// MARK: Implement InputMemoDelegate
+
 extension MainViewController: InputMemoDelegate {
     
     func addMemo(content: String) {
@@ -138,6 +151,8 @@ extension MainViewController: InputMemoDelegate {
     }
     
 }
+
+// MARK: Implement ChangeMemoStateDelegate
 
 extension MainViewController: ChangeMemoStateDelegate {
     func changeState(of cell: MemoTableViewCell) {

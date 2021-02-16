@@ -10,21 +10,27 @@ import UIKit
 protocol ChangeMemoStateDelegate {
     func changeState(of cell: MemoTableViewCell)
 }
+
 class MemoTableViewCell: UITableViewCell {
+    
+    // MARK: Constants
+    
     static let identifier = String(describing: MemoTableViewCell.self)
+    
+    // MARK: Properties
     
     var delegate: ChangeMemoStateDelegate?
     var state: MemoState = .notInProgress
 
+    // MARK: Views
+    
     @IBOutlet weak var contentLabel: UILabel!
     @IBOutlet weak var stateButton: UIButton!
     
+    // MARK: Initialize
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
     }
     
     func configure(memo: Memo) {
@@ -32,6 +38,8 @@ class MemoTableViewCell: UITableViewCell {
         let state = MemoState(rawValue: memo.state ?? "") ?? .notInProgress
         setState(to: state)
     }
+    
+    // MARK: Methods
     
     private func setState(to state: MemoState) {
         self.state = state
@@ -51,6 +59,8 @@ class MemoTableViewCell: UITableViewCell {
         delegate?.changeState(of: self)
     }
 }
+
+// MARK: MemoState
 
 extension MemoTableViewCell {
     enum MemoState: String {

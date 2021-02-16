@@ -13,11 +13,17 @@ protocol InputMemoDelegate {
 
 class InputMemoViewController: UIViewController {
     
+    // MARK: Properties
+    
     var delegate: InputMemoDelegate?
+    
+    // MARK: Views
     
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var button: UIButton!
+    
+    // MARK: Initialize
     
     init?(coder: NSCoder, delegate: InputMemoDelegate) {
         self.delegate = delegate
@@ -48,10 +54,20 @@ class InputMemoViewController: UIViewController {
         textField.becomeFirstResponder()
     }
     
+    // MARK: Methods
+    
     private func addMemo() {
         guard let input = textField.text else { return }
         delegate?.addMemo(content: input)
         textField.text = nil
+    }
+
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func touchedAddMemo(_ sender: Any) {
+        addMemo()
     }
     
     @objc func keyboardWillShow(notification: Notification) {
@@ -69,16 +85,10 @@ class InputMemoViewController: UIViewController {
     @objc func keyboardWillHide(notification: Notification) {
         self.contentView.transform = .identity
     }
-
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.dismiss(animated: true, completion: nil)
-    }
-    
-    @IBAction func touchedAddMemo(_ sender: Any) {
-        addMemo()
-    }
     
 }
+
+// MARK: Implement TextFieldDelegate
 
 extension InputMemoViewController: UITextFieldDelegate {
     
