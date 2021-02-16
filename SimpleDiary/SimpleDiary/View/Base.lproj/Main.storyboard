@@ -43,8 +43,16 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="FHQ-15-e7K" secondAttribute="bottom" id="yCg-Ap-fcz"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="0n0-Ue-MJg"/>
+                    <navigationItem key="navigationItem" id="0n0-Ue-MJg">
+                        <barButtonItem key="rightBarButtonItem" title="편집" id="3CM-NQ-ll8">
+                            <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="touchedEditMode:" destination="BYZ-38-t0r" id="IcP-al-wol"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="editButton" destination="3CM-NQ-ll8" id="sJi-zM-Nhm"/>
                         <outlet property="tableView" destination="FHQ-15-e7K" id="Dlz-gF-kfT"/>
                     </connections>
                 </viewController>

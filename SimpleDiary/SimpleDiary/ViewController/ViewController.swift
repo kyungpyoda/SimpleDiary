@@ -13,6 +13,7 @@ class ViewController: UIViewController {
     var data: [Memo] = []
 
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var editButton: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,6 +47,16 @@ class ViewController: UIViewController {
             tableView.reloadData()
         } catch {
             print(error.localizedDescription)
+        }
+        
+    }
+    @IBAction func touchedEditMode(_ sender: Any) {
+        if tableView.isEditing {
+            editButton.title = "편집"
+            tableView.setEditing(false, animated: true)
+        } else {
+            editButton.title = "취소"
+            tableView.setEditing(true, animated: true)
         }
     }
 }
