@@ -2,7 +2,7 @@
 //  Memo+CoreDataProperties.swift
 //  SimpleDiary
 //
-//  Created by 홍경표 on 2021/02/12.
+//  Created by 홍경표 on 2021/02/16.
 //
 //
 
@@ -17,6 +17,7 @@ extension Memo {
     }
 
     @NSManaged public var content: String?
+    @NSManaged public var state: String?
 
 }
 
