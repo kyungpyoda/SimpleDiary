@@ -22,17 +22,31 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JaB-TM-R4f">
+                        <rect key="frame" x="276" y="0.0" width="44" height="44"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="44" id="7im-c0-8G0"/>
+                        </constraints>
+                        <state key="normal" title="Button"/>
+                        <connections>
+                            <action selector="touchedChangeState:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="chb-Hm-PGO"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="2j9-W2-gtc" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="74G-6g-JgY"/>
                     <constraint firstAttribute="bottom" secondItem="2j9-W2-gtc" secondAttribute="bottom" id="8hV-T7-gg8"/>
+                    <constraint firstAttribute="bottom" secondItem="JaB-TM-R4f" secondAttribute="bottom" id="JG9-oL-7MH"/>
+                    <constraint firstAttribute="trailing" secondItem="JaB-TM-R4f" secondAttribute="trailing" id="QPn-ua-VEf"/>
                     <constraint firstItem="2j9-W2-gtc" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="UZ8-rX-WUL"/>
-                    <constraint firstAttribute="trailing" secondItem="2j9-W2-gtc" secondAttribute="trailing" constant="10" id="tHK-Yo-puW"/>
+                    <constraint firstItem="JaB-TM-R4f" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="mS7-N2-8Z8"/>
+                    <constraint firstItem="JaB-TM-R4f" firstAttribute="leading" secondItem="2j9-W2-gtc" secondAttribute="trailing" constant="10" id="u0E-HP-bhL"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="contentLabel" destination="2j9-W2-gtc" id="dvb-6q-VtF"/>
+                <outlet property="stateButton" destination="JaB-TM-R4f" id="T8N-Nz-DsD"/>
             </connections>
             <point key="canvasLocation" x="-303" y="132"/>
         </tableViewCell>
