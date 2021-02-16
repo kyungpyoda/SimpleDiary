@@ -38,7 +38,7 @@ class ViewController: UIViewController {
         )
     }
     
-    func fetchData() {
+    private func fetchData() {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         let context = appDelegate.persistentContainer.viewContext
         do {
@@ -51,7 +51,7 @@ class ViewController: UIViewController {
         
     }
     
-    func deleteData(at index: IndexPath) {
+    private func deleteData(at index: IndexPath) {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         let context = appDelegate.persistentContainer.viewContext
         do {
