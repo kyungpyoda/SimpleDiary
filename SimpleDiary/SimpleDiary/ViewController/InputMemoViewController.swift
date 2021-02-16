@@ -44,8 +44,8 @@ class InputMemoViewController: UIViewController {
     }
     
     private func setUpTextField() {
-        textField.becomeFirstResponder()
         textField.delegate = self
+        textField.becomeFirstResponder()
     }
     
     private func addMemo() {
